@@ -1,0 +1,727 @@
+Tên   : Trần Quốc Bảo
+MSSV  : 1951120086
+Lớp NC: CN19B
+Lớp HP: 010112400102_KyThuatLapTrinh
+
+Mục Lục: "//Chương x - bài yy"
+
+//Chương 3 - bài 01:
+/*
+Bài 1.  Nhap DL cho day so nguyen gom n phan tu (n<=50)
+a, Xac dinh so phan tu la so chan ma lon hon 30 trong mang
+b, Tìm giá tri nho nhat trong mang và so lan xuat hien cua no
+c, Sap xep mang tang dan
+d, Xóa tat ca cac phan tu có giá tri bang x o trong mang
+e, Chen vao mang phan tu y sao cho mang van tang dan.
+*/
+
+#include <iostream>
+using namespace std;
+
+void nhapMang(int arr[], int n);
+void xuatMang(int arr[], int n);
+int demSoChan(int arr[], int n);
+void inSoChan(int arr[], int n);
+int timMinCuaMang(int arr[], int n);
+int soLanXuatHien(int arr[], int n, int k);
+void sapXepMangTang(int arr[], int n);
+void xoaPhanTu(int arr[], int &n, int x);
+void themPhanTu(int arr[], int &n, int y);
+
+int main(){
+	
+	// khai bao bien
+	int n,i,x,y;
+	do{
+		cout<<"Nhap so phan tu cua mang (toi da 50): ";
+		cin>>n;
+	} while (n>50 || n<0);
+	int arr[n];
+
+	//Virtual Arrays to Test
+	//int arr[6] = {38,5,1,36,3,1};
+	//n=6;
+	
+	//MAIN
+	nhapMang(arr,n);
+	
+	//cau A.
+	cout<<"\nSo phan tu la so CHAN & lon hon 30 la: "<<demSoChan(arr,n)<<" phan tu.";
+	cout<<"\nDo la:";
+	inSoChan(arr,n);
+	cout<<endl;
+	
+	//cau B.
+	cout<<"\nGTNN cua mang do la: "<<timMinCuaMang(arr,n);
+	cout<<"\nSo lan xuat hien cua "<<timMinCuaMang(arr,n)<<" trong mang do la: "<<soLanXuatHien(arr,n,timMinCuaMang(arr,n));
+	cout<<endl;
+	
+	//cau C.
+	cout<<"\nSap xep mang tang dan: ";
+	sapXepMangTang(arr,n);
+	xuatMang(arr,n);
+	cout<<endl;
+	
+	//cau D.
+	cout<<"\nNhap gia tri can xoa: ";
+	cin>>x;
+	xoaPhanTu(arr,n,x);
+	xuatMang(arr,n);
+	cout<<endl;
+	
+	//cau E.
+	cout<<"\nNhap gia tri can them: ";
+	cin>>y;
+	themPhanTu(arr,n,y);
+	xuatMang(arr,n);
+	cout<<endl;
+	
+	return 0;
+}
+
+void nhapMang(int arr[], int n){
+	for(int i=0 ; i<n ; i++) {
+		cout<<"Gia tri thu "<<i+1<<" = ";
+		cin>>arr[i];
+	}
+}
+void xuatMang(int arr[], int n){
+	for(int i=0 ; i<n ; i++) {
+		cout<<"\nGia tri thu "<<i+1<<" = "<<arr[i];
+	}	
+}
+int demSoChan(int arr[], int n){
+	int dem=0;
+	for(int i=0 ; i<n ; i++) {
+		if (arr[i]>30 && arr[i]%2==0) {
+			dem++;	
+		}
+	}
+	return dem;
+}
+void inSoChan(int arr[], int n){
+	for(int i=0 ; i<n ; i++) {
+		if (arr[i]>30 && arr[i]%2==0) {
+			cout<<"\nGia tri thu "<<i+1<<" = "<<arr[i];		
+		}
+	}
+}
+int timMinCuaMang(int arr[], int n){
+	int min = arr[0];
+	for(int i=0 ; i<n ; i++) {
+		if (arr[i]<min) {
+			min=arr[i];
+		}
+	}
+	return min;
+}
+int soLanXuatHien(int arr[], int n, int k){
+	int dem=0;
+	for(int i=0 ; i<n ; i++) {
+		if (arr[i]==k) {
+			dem++;
+		}
+	}
+	return dem;
+}
+void sapXepMangTang(int arr[], int n){
+	int i,j,temp;
+	for(i=0 ; i<n-1 ; i++){
+		for(j=i+1 ; j<n ; j++){
+			if(arr[i]>arr[j]){
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+}
+void xoaPhanTu(int arr[], int &n, int x){
+	for(int i=0 ; i<n ; i++){
+		if(arr[i]==x) {
+			for(int j=i ; j<n-1 ; j++){
+				arr[j]=arr[j+1];
+			}
+			n--;
+			i--;
+		}
+	}
+}
+void themPhanTu(int arr[], int &n, int y){
+	if(y > arr[n-1]){
+		n++;
+		arr[n-1] = y;	
+	}
+	else if(y < arr[0]){
+		n++;
+		for(int j=n-1 ; j>0 ; j--){
+			arr[j]=arr[j-1];
+		}
+		arr[0] = y;
+	}
+	else for(int i=0 ; i<n-1 ; i++){
+		if(arr[i]<=y && arr[i+1]>=y) {
+			n++;
+			for(int j=n-1 ; j-1>i ; j--){
+				arr[j]=arr[j-1];
+			}
+			arr[i+1] = y;
+			break;
+		}
+	}
+}
+
+//Chương 3 - bài 02:
+/*
+Bài 2. 	Nhap du lieu cho 2 ma tran so nguyên  A và B "deu" gom m hàng n cot.
+a, Xuat tung ma tran và ma tran tong A+B
+b, Tìm phan tu lon nhat trên tung ma tran và trên ca 2 ma tran
+c, Tong các phan tu trên ma tran nào là lon hon
+d, Sap xep ma tran A tang dan, ma tran B giam dan
+*/
+
+#include <iostream>
+using namespace std;
+
+void nhapMaTran(int mt[][277], int m, int n);
+void xuatMaTran(int mt[][277], int m, int n);
+void sumMatrix(int sum[][277], int mt1[][277], int mt2[][277], int m, int n);
+int timMax1mt(int mt[][277], int m, int n);
+int timMax2mt(int mt1[][277], int mt2[][277], int m, int n);
+void tongPhanTu(int mt1[][277], int mt2[][277], int m, int n);
+void sapXepTang(int mt[][277], int m, int n);
+void sapXepGiam(int mt[][277], int m, int n);
+
+int main(){
+	
+	// khai bao bien
+	int m,n;
+	do{
+		cout<<"Nhap so dong: ";
+		cin>>m;
+		cout<<"Nhap so cot: ";
+		cin>>n;
+	} while (m<=0 && n<=0);
+	
+	//Virtual Matrix to Test
+	//int ma_tran[4][3] = {{ 1, 2, 3 }, {2, 3, 4}, {3, 4, 5}, {4, 5, 6}};
+	
+	int A[277][277], B[277][277], C[277][277];
+	
+	//MAIN
+	cout<<"\nNhap du lieu cho ma tran A:\n";
+	nhapMaTran(A,m,n);
+	cout<<"\nNhap du lieu cho ma tran B:\n";
+	nhapMaTran(B,m,n);
+	
+	//cau A.
+	cout<<"\nXuat ma tran A:\n";
+	xuatMaTran(A,m,n);
+	cout<<"\nXuat ma tran B:\n";
+	xuatMaTran(B,m,n);
+	cout<<"\nXuat ma tran [A+B]:\n";
+	sumMatrix(C,A,B,m,n);
+	xuatMaTran(C,m,n);
+	
+	//cau B.
+	cout<<"\nMAX cua ma tran A la "<<timMax1mt(A,m,n);
+	cout<<"\nMAX cua ma tran B la "<<timMax1mt(B,m,n);
+	cout<<"\nMAX cua ma tran A&B la "<<timMax2mt(A,B,m,n);
+	cout<<endl;
+	
+	//cau C.
+	tongPhanTu(A,B,m,n);
+	cout<<endl;
+	
+	//cau D.
+	cout<<"\nXuat ma tran A (da sx tang dan):\n";
+	sapXepTang(A,m,n);
+	xuatMaTran(A,m,n);
+	cout<<"\nXuat ma tran B (da sx giam dan):\n";
+	sapXepGiam(B,m,n);
+	xuatMaTran(B,m,n);
+	
+	return 0;
+}
+
+void nhapMaTran(int mt[][277], int m, int n){
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			cout<<"Gia tri ["<<i<<"]["<<j<<"] = ";
+			cin>>mt[i][j];	
+		}
+	}
+}
+void xuatMaTran(int mt[][277], int m, int n){
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			cout<<mt[i][j]<<"\t";	
+		}
+		cout<<endl;
+	}
+}
+void sumMatrix(int sum[][277], int mt1[][277], int mt2[][277], int m, int n){
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			sum[i][j] = mt1[i][j] + mt2[i][j];
+		}
+	}
+}
+int timMax1mt(int mt[][277], int m, int n){
+	int max = mt[0][0];
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			if(mt[i][j] > max){
+				max = mt[i][j];
+			}
+		}
+	}
+	return max;
+}
+int timMax2mt(int mt1[][277], int mt2[][277], int m, int n){
+	int max = mt1[0][0];
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			if(mt1[i][j] > max){
+				max = mt1[i][j];
+			}
+			if(mt2[i][j] > max){
+				max = mt2[i][j];
+			}
+		}
+	}
+	return max;
+}
+void tongPhanTu(int mt1[][277], int mt2[][277], int m, int n){
+	int sum1=0, sum2=0;
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			sum1 += mt1[i][j];
+			sum2 += mt2[i][j];
+		}
+	}
+	if(sum1 == sum2) cout<<"\nTong cac phan tu tren ma tran bang nhau";
+	if(sum1 > sum2) cout<<"\nTong cac phan tu tren mt thu nhat("<<sum1<<") LON hon mt thu hai("<<sum2<<").";
+	if(sum1 < sum2) cout<<"\nTong cac phan tu tren mt thu hai("<<sum2<<") LON hon mt thu nhat("<<sum1<<").";
+}
+void sapXepTang(int mt[][277], int m, int n){
+	int k=0, tam[m*n], temp;
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			tam[k] = mt[i][j];
+			k++;
+		}
+	}
+	for(int i=0; i<m*n-1; i++){
+		for(int j=i+1; j<m*n; j++){
+			if(tam[i]>tam[j]) {
+				temp = tam[i];
+				tam[i] = tam[j];
+				tam[j] = temp;
+			}
+		}
+	}
+	k=0;
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			mt[i][j] = tam[k];
+			k++;
+		}
+	}
+}
+void sapXepGiam(int mt[][277], int m, int n){
+	int k=0, tam[m*n], temp;
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			tam[k] = mt[i][j];
+			k++;
+		}
+	}
+	for(int i=0; i<m*n-1; i++){
+		for(int j=i+1; j<m*n; j++){
+			if(tam[i]<tam[j]) {
+				temp = tam[i];
+				tam[i] = tam[j];
+				tam[j] = temp;
+			}
+		}
+	}
+	k=0;
+	for(int i=0 ; i<m ; i++) {
+		for(int j=0 ; j<n ; j++) {
+			mt[i][j] = tam[k];
+			k++;
+		}
+	}
+}
+
+//Chương 3 - bài 04:
+/*
+Bài 4.  Nhap du lieu cho xâu kí tu str[100]
+a, Xu?t ra màn hình xâu str
+b, Xâu str có bao nhiêu kí tu và trong dó bao nhiêu kí tu là so
+c, Loai bo các kí tu không phai là chu hoac không phai khoang trong trong xâu str
+d, Ðoi chu thuong trong xâu str thành chu in hoa
+e, Chèn vào xâu str mot xâu str2 khác vào vi trí bat kì trong str.
+*/
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+int demKiSo(char str[100]);
+void xoaGiuLaiChu(char str[100]);
+void insStrIntoStr(char str1[100], char str2[100], int k);
+
+int main(){
+	
+	// khai bao bien
+	char str[100], str2[100];
+	int k;
+		
+	//Virtual String to Test
+	//char str[100] = "trano"; //{'b','a',' ','o','\0'};
+	//char str2[100] = "baoquyen";
+	
+	//MAIN
+	cout<<"\nNhap du lieu cho sau (max 99 ki tu) A: \n";
+	cin.getline(str,99);
+	
+	//cau A.
+	cout<<"\nXau ban vua nhap la: \n"<<str<<endl;
+	
+	//cau B.
+	cout<<"\nXau ban vua nhap co So Ki Tu la: "<<strlen(str)<<endl;
+	cout<<"Trong do, co "<<demKiSo(str)<<" ki tu la So."<<endl;
+	
+	//cau C.
+	xoaGiuLaiChu(str);
+	cout<<"\nXau da xoa cac Ky Tu Dac Biet va So:\n"<<str<<endl;
+	
+	//cau D.
+	cout<<"\nXau da chuyen thanh CHU IN HOA:\n"<<strupr(str)<<endl;
+	
+	//cau E.
+	cout<<"\nNhap xau can chen (max 99 ki tu):\n";
+	cin.getline(str2,99);
+	cout<<"Nhap vi tri can chen: \n";
+	cin>>k;
+	insStrIntoStr(str,str2,k);
+	cout<<"Chuoi sau khi chen:\n"<<str<<endl;
+	
+	return 0;
+}
+
+int demKiSo(char str[100]){
+	int dem = 0;
+	for(int i=0 ; i < strlen(str) ; i++){
+		if('0'<=str[i] && str[i]<='9') {
+			dem++;
+		}
+	}
+	return dem;
+}
+void xoaGiuLaiChu(char str[100]){
+	int n=strlen(str);
+	for(int i=0 ; i < n ; i++){
+		if ( (str[i]!=' ' && str[i]<'A') || ('Z'<str[i] && str[i]<'a') || ('z'<str[i]) ) {
+			for(int j=i ; j<n-1 ; j++){
+				str[j]=str[j+1];
+			}
+			n--;
+			i--;
+		}
+	}
+	str[n]='\0';
+}
+void insStrIntoStr(char str1[100], char str2[100], int k){
+	char tam[100];
+	strcpy(tam,str1+k-1); //copy chuoi str1 tu vi tri k, va gan vao xau TAM.
+	strcpy(str1+k-1,str2); //copy chuoi str2 và ghi dè lên str1 tu vi tri k
+	strcat(str1,tam); //Concatenate, Noi tiep chuoi tam vào sau str1 (lay ca ki tu \null)
+}
+
+//Chương 3 - bài 05:
+/*
+Bài 5. 	Nhap du lieu cho mang chuoi A gom n sinh viên (n<=50).
+a, Xuat các chuoi trong A ra màn hình
+b, Tìm xem trong A có bao nhiêu nguoi có ho là “Nguyen”
+c, Dua vào ho hãy sep xep A tang dan (a -> z).
+d, Xuat ra màn hình tên cua các sinh viên duoi dang chu in hoa
+*/
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+void nhapTenSV(char SinhVien[][27], int n);
+void inTenSV(char SinhVien[][27], int n);
+int demSVtheoHo(char SinhVien[][27], char hoSV[], int n);
+void sapXepTheoHo(char SinhVien[][27], int n);
+void inHoaSV(char SinhVien[][27], int n);
+
+int main(){
+	
+	// khai bao bien
+	int m,n;
+	do{
+		cout<<"Nhap so luong sinh vien (max 50): ";
+		cin>>n;
+		cin.ignore(); //xóa '\n' cua cin
+	} while (n<1 || n>50);
+	char SinhVien[n][27];
+	
+	//MAIN
+	nhapTenSV(SinhVien,n);
+	
+	//cau A.
+	cout<<"\nDanh sach sinh vien vua nhap la:\n";
+	inTenSV(SinhVien,n);
+	cout<<endl;
+
+	//cau B.
+	char hoSV[]="Nguyen";
+	cout<<"Co "<<demSVtheoHo(SinhVien,hoSV,n)<<" sinh vien ho "<<hoSV<<endl;
+	
+	//cau C.
+	sapXepTheoHo(SinhVien,n);
+	cout<<"\nDanh sach sinh vien vua sap xep xong la:\n";
+	inTenSV(SinhVien,n);
+	
+	//cau D.
+	inHoaSV(SinhVien,n);
+	cout<<"\nDanh sach sinh vien vua chuyen thanh CHU IN HOA:\n";
+	inTenSV(SinhVien,n);	
+
+	return 0;
+}
+
+void nhapTenSV(char SinhVien[][27], int n){
+	for(int i=0; i<n; i++) {
+		cout<<"Nhap vao ho va ten sinh vien thu " <<i+1<<" : \n";
+		cin.getline(SinhVien[i],26);
+	}
+}
+void inTenSV(char SinhVien[][27], int n){
+	for(int i=0; i<n; i++){
+		cout<<"Sinh vien thu "<<i+1<<": "<<SinhVien[i]<<"\n";	
+	}
+}
+int demSVtheoHo(char SinhVien[][27], char hoSV[], int n){
+	int dem=0;
+	for(int i=0; i<n; i++){
+		if (strncmp(SinhVien[i],hoSV,strlen(hoSV))==0) {
+			dem++;
+		}	
+	}
+	return dem;
+}
+void sapXepTheoHo(char SinhVien[][27], int n){
+	char temp[27];
+	for(int i=0; i<n-1; i++){
+		for(int j=i+1; j<n; j++){
+			if(strcmp(SinhVien[i],SinhVien[j])>0) {
+				strcpy(temp,SinhVien[i]);
+				strcpy(SinhVien[i],SinhVien[j]);
+				strcpy(SinhVien[j],temp);
+			}
+		}
+	}
+}
+void inHoaSV(char SinhVien[][27], int n){
+	for(int i=0; i<n; i++){
+		strupr(SinhVien[i]);
+	}
+}
+
+//Chương 3 - bài 06:
+/*
+Bài 6.  Viet hàm de qui tính n!
+a, Tính to hop chap k cua n phan tu ( Neu ton tai)
+b, Tinh he so cua so hang thu k trong khai trien nhi thuc Newton cua : (a+b)^n
+c, Xuat ra tat ca các he so cua khai trien nhi thuc o câu B trên
+d, Xuat ra màn hình tam giác Pascal
+*/
+
+#include <iostream>
+using namespace std;
+
+unsigned long long factorial(int n);
+unsigned long long combination(int n, int k);
+unsigned long long combinationDQ(int n, int k);
+void veTamGiacPascal(int n);
+
+int main(){
+	
+	int n,k;
+	
+	//cau A.
+	do{
+		cout<<"\nNhap n va k (n>=k): ";
+		cin>>n>>k;
+	} while (n<0||k<0||k>n);
+	cout<<"To hop chap "<<k<<" cua "<<n<<" phan tu la: "<<combination(n,k)<<endl;
+	cout<<"To hop chap "<<k<<" cua "<<n<<" phan tu la: "<<combinationDQ(n,k)<<endl;	
+	
+	//cau B.
+	do{
+		cout<<"\nNhap n va k (n>=k): ";
+		cin>>n>>k;
+	} while (n<0||k<0||k>n);
+	cout<<"So hang thu "<<k<<" trong khai trien NT Niuton cua (a+b)^"<<n<<" la: "<<combinationDQ(n,k-1)<<endl;
+	
+	//cau C.
+	cout<<"\nCac so hang trong khai trien NT Niuton cua (a+b)^"<<n<<" lan luot la: \n";
+	for(int i=0; i<=n ; i++){
+		cout<<combinationDQ(n,i)<<" ";
+	}
+	cout<<endl;
+	
+	//cau D.
+	veTamGiacPascal(n);
+	
+	return 0;
+}
+
+unsigned long long factorial(int n){
+	if(n==0||n==1) return 1;
+	return n*factorial(n-1);
+}
+unsigned long long combination(int n, int k){
+	return factorial(n)/(factorial(k)*factorial(n-k));
+}
+unsigned long long combinationDQ(int n, int k){
+	if(k==0||k==n) return 1;
+	if(k==1) return n;
+	return combinationDQ(n-1,k-1)+combinationDQ(n-1,k);
+}
+void veTamGiacPascal(int n){
+	cout<<"\nTam giac Pascal "<<n+1<<" hang:\n";
+	for(int i=0; i<=n; i++){
+		for(int j=0; j<=n-i; j++){
+			cout<<"   ";
+		}
+		for(int j=0; j<=i ; j++){
+			cout<<combinationDQ(i,j)<<"     ";
+		}
+		cout<<endl;
+	}
+}
+
+//Chương 3 - bài 07:
+/*
+Bài 7.  Viêt hàm de qui tính so fibonaci thu n. 
+a, Xuat ra n phan tu dau tiên cua dãy Fibonacci
+b, Xuat ra màn hình k phan tu chan dau tiên cua dãy Fibonacci
+c, Xuat ra phan tu le thu m cua dãy Fibonacci
+a( Cho dãy Fibonacci: 0,1, 1, 2, 3, 5, 8, 13(5), 21,….)
+*/
+
+#include <iostream>
+using namespace std;
+
+unsigned long long fibo(int n);
+void inNFiboDau(int n);
+void inNFiboChan(int n);
+int fiboLe(int n);
+
+int main(){
+	
+	int n,k,m;
+	
+	//MAIN
+	do{
+		cout<<"\nNhap n: ";
+		cin>>n;
+	} while (n<=0);
+	cout<<"So Fibonacci thu "<<n<<" la: "<<fibo(n-1)<<endl;
+	
+	//Cau A.
+	cout<<"\nDay gom "<<n<<" so Fibonacci dau tien la:\n";
+	inNFiboDau(n);
+	cout<<endl;
+	
+	
+	//Cau B.
+	do{
+		cout<<"\nNhap k: ";
+		cin>>k;
+	} while (k<0);
+	cout<<"Day gom "<<k<<" so Fibonacci Chan dau tien la:\n";
+	inNFiboChan(k);
+	cout<<endl;
+	
+	//Cau C.
+	do{
+		cout<<"\nNhap m: ";
+		cin>>m;
+	} while (m<=0);
+	cout<<"So Fibonacci Le thu "<<m<<" la: "<<fiboLe(m);
+	cout<<endl;
+	
+	return 0;
+}
+
+unsigned long long fibo(int n){
+	if(n==0||n==1) return n;
+	return fibo(n-1)+fibo(n-2);
+}
+void inNFiboDau(int n){
+	for(int i=0; i<n; i++){
+		cout<<fibo(i)<<" ";
+	}
+}
+void inNFiboChan(int n){
+	if(n==0) cout<<endl;
+	else{
+		int dem=0,i=0;
+		do{
+			if(fibo(i)%2==0){
+				cout<<fibo(i)<<" ";
+				dem++;
+			}
+			i++;
+		}while(dem<=n);
+	}
+}
+int fiboLe(int n){
+	int dem=0,i=0;
+	do{
+		if(fibo(i)%2!=0){
+			dem++;
+		}
+		i++;
+	} while(dem<n);
+	return fibo(i-1);
+}
+
+//Chương 3 - bài 08:
+/*
+Bài 8.
+	Tinh S = sqrt(3+sqrt(3+sqrt(3+sqrt(3+...))))
+	//n dau can -> S= (sqrt(13)+1)/2
+*/
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+float tong(int n){
+	if(n==1) return sqrt(3);
+	return sqrt(3+tong(n-1));
+}
+
+int main(){
+	
+	int n;
+	cout<<"Tinh S = sqrt(3+sqrt(3+sqrt(3+sqrt(3+...)))) (voi n dau can) \n";
+	//n dau can -> S= (sqrt(13)+1)/2
+	do{
+		cout<<"\nNhap n: ";
+		cin>>n;
+	} while (n<=0);
+	
+	cout<<"\nS = "<<tong(n);
+	
+	return 0;
+}

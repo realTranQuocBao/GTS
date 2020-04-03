@@ -1,0 +1,581 @@
+Tên   : Trần Quốc Bảo
+MSSV  : 1951120086
+Lớp NC: CN19B
+Lớp HP: 010112400102_KyThuatLapTrinh
+
+Mục Lục: "//Chương x - bài yy"
+
+//Chương 1 - bài 01:
+
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tinh Khoang Cach \ntu DIEM A(x,y,z) \nden MAT PHANG Ax+By+Cz+D=0\n";
+	
+	//Khai bao
+	float khoangCach,x,y,z,A,B,C,D;
+	
+	//Nhap du lieu
+	cout<<"\nNhap x,y,z,A,B,C,D: ";
+	cin>>x>>y>>z>>A>>B>>C>>D;
+	
+	//tinh toan
+	khoangCach = fabs(A*x+B*y+C*z+D) / sqrt(pow(A,2)+pow(B,2)+pow(C,2));
+	
+	//in ket qua
+	cout<<"\nKhoang Cach = "<<fixed<<setprecision(3)<<khoangCach<<endl;
+	
+	return 0;
+	
+}
+
+//Chương 1 - bài 02:
+
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tinh Gia tri Trung Binh cua 3 so bat ky\n";
+	
+	//Khai bao
+	float giaTriTrungBinh,x,y,z;
+
+	//Nhap du lieu
+	cout<<"\nNhap x,y,z: ";
+	cin>>x>>y>>z;
+
+	//tinh toan
+	giaTriTrungBinh = (x+y+z)/3;
+
+	//in ket qua
+	cout<<"\nGia tri Trung Binh = "<<fixed<<setprecision(4)<<giaTriTrungBinh<<endl;
+	
+	return 0;
+	
+}
+
+//Chương 1 - bài 03:
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Nhap vao Ten_GioiTinh_Tuoi \nXuat ra Ten_GioiTinh_NamSinh \n\n---------------------------\n";
+	
+	//Khai bao
+	string ten,gioiTinh;
+	int tuoi,namSinh;
+	
+	//Nhap thong tin
+	cout<<"\n!!!Nhap vao Thong Tin cua Ban!!!";
+	cout<<"\nTen       : ";
+	getline(cin,ten);
+	cout<<"Gioi tinh : ";
+	getline(cin,gioiTinh);
+	cout<<"Tuoi      : ";
+	cin>>tuoi;
+	cout<<"\n---------------------------\n";
+	
+	//Xuat thong tin
+	cout<<"\n!!!Day la Thong Tin cua Ban!!!";
+	cout<<"\nTen       : "<<ten;
+	cout<<"\nGioi tinh : "<<gioiTinh;
+	cout<<"\nNam sinh  : "<<2020-tuoi;
+	cout<<endl;
+	
+	return 0;
+
+}
+
+//Chương 1 - bài 04:
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+	//info program
+	cout<<"!!! Chuong trinh Nhap va Xuat 1 ky tu !!! \n\n---------------------------\n\n";
+	
+	//Khai bao
+	char t ;
+	
+	//Nhap du lieu
+	cout<<"Hay nhap vao 1 ky tu: ";
+	cin>>t;
+	cout<<"\n---------------------------\n";
+	
+	//Xuat du lieu
+	cout<<"\nKy tu ban vua nhap la: "<<t<<endl;
+	
+	return 0;
+	
+}
+
+//Chương 2 - bài 01:
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+	//info program
+	cout<<"Chu cai? Hoa/Thuong?"<<endl;
+	
+	//Khai bao
+	char t ;
+	
+	//Nhap du lieu
+	cout<<"Hay nhap vao 1 ky tu: ";
+	cin>>t;
+	
+	//Xu ly du lieu & Xuat KQ
+	if(t>='A'&&t<='Z') cout<<t<<" la Chu Cai IN HOA";
+	else if(t>='a'&&t<='z') cout<<t<<" la Chu Cai THUONG";
+	else cout<<t<<" KHONG PHAI Chu Cai";
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 02:
+
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tim GTLN trong a, b, c, d \n";
+	
+	//Khai bao
+	float max,a,b,c,d;
+	
+	//Nhap du lieu
+	cout<<"Nhap a,b,c,d: ";
+	cin>>a>>b>>c>>d;
+	
+	//Xu ly du lieu
+	max = a;
+	if (max < b) max = b;
+	if (max < c) max = c;
+	if (max < d) max = d;
+	
+	//in ket qua
+	cout<<"GTLN la "<<max;
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 03:
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Phien am 0->9\n";
+	
+	//Khai bao
+	int c;
+	
+	//Nhap du lieu
+	cout<<"Nhap vao so 0->9: ";
+	cin>>c;
+	
+	//Xu ly du lieu & In KQ
+	switch (c) {
+		case 0: {
+			cout<<"KHOONG";
+			break;
+		}
+		case 1: {
+			cout<<"MOOTJ";
+			break;
+		}
+		case 2: {
+			cout<<"HAI";
+			break;
+		}
+		case 3: {
+			cout<<"BA";
+			break;
+		}
+		case 4: {
+			cout<<"BOONS";
+			break;
+		}
+		case 5: {
+			cout<<"NAWM";
+			break;
+		}
+		case 6: {
+			cout<<"SAUS";
+			break;
+		}
+		case 7: {
+			cout<<"BAYR";
+			break;
+		}
+		case 8: {
+			cout<<"TAMS";
+			break;
+		}
+		case 9: {
+			cout<<"CHINS";
+			break;
+		}
+		default: cout<<"Toi yeu cau nhap 0->9 ma ?!";
+	} 
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 04:
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Ngay X cua T3/2020 là thu may?\n";
+	
+	//Khai bao
+	int c;
+	
+	//Nhap du lieu
+	cout<<"Nhap vao ngay 1->31: ";
+	cin>>c;
+	
+	//Xu ly du lieu & In KQ
+	if(c<1 || c>31) cout<<"Ban vua nhap 1 ngay khong thuoc Thang 3 nam 2020";
+	switch (c%7) {
+		case 2:{
+			cout<<"Thu 2";
+			break;
+		}
+		case 3: {
+			cout<<"Thu 3";
+			break;
+		}
+		case 4: {
+			cout<<"Thu 4";
+			break;
+		}
+		case 5: {
+			cout<<"Thu 5";
+			break;
+		}
+		case 6: {
+			cout<<"Thu 6";
+			break;
+		}
+		case 0: {
+			cout<<"Thu 7";
+			break;
+		}
+		case 1: {
+			cout<<"Chua Nhat";
+			break;
+		}
+		default: break;
+	} 
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 05:
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tinh S = sqrt(1^2+2^2+3^2+...+N^2) \n";
+	
+	//Khai bao
+	double S,N;
+	
+	//Nhap du lieu
+	cout<<"Nhap N: ";
+	cin>>N;
+	
+	//tinh toan
+	S = sqrt(N*(N+1)*(2*N+1)/6);
+	
+	//in ket qua
+	cout<<"S = "<<S;
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 06:
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tinh S = sqrt(3+sqrt(3+sqrt(3+sqrt(3+...)))) \n";
+	//n dau can -> S= (sqrt(13)+1)/2
+	
+	//Khai bao
+	double S,n;
+	
+	//Nhap du lieu
+	cout<<"Nhap so Dau Can: ";
+	cin>>n;
+	
+	//tinh toan
+	S = 0;
+	for(int i=0; i<n; i++){
+		S= sqrt(3+S);
+	}
+	
+	//in ket qua
+	cout<<"S = "<<S;
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 07:
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+	//info program // ThapPhan to NhiPhan
+	cout<<"Nhap N & Xuat N duoi dang Nhi Phan"<<endl;
+	
+	//Khai bao
+	int n,np[250],i;
+	
+	//Nhap du lieu
+	cout<<"Hay nhap so tu nhien N: ";
+	cin>>n;
+	
+	//Xu ly du lieu
+	for (i = 0; n > 0; i++) {
+		np[i] = n % 2;
+		n = n / 2;
+	}
+	
+	//Xuat KQ
+	cout<<"Dang so Nhi Phan la: ";
+	for (i -= 1; i >= 0; i--) {
+		cout<<np[i];	
+	}
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 08:
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tim SoHoanChinh < N cho truoc.\n";
+	
+	//Khai bao
+	unsigned long long int n,i,j,tong; //0  toi max = 18446744073709551615
+	
+	//Nhap du lieu
+	cout<<"Nhap N: ";
+	cin>>n;
+	
+	//Xu li du lieu & in KQ
+	if (n < 6) cout<<"khong tim thay SoHoanChinh < "<<n;
+	cout<<"Cac SoHoanChinh < "<<n<<" la: ";
+	for (i = 6; i < n; i++) {
+		tong = 0;
+		for (j = 1; j <= i/2; j++) {
+			if (i%j == 0) {
+				tong += j;
+			}
+		}
+		if (tong == i) cout<<i<<" ";
+	}
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 09:
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tinh gan dung e^x theo cong thuc xap xi (Khai trien Taylor)\n";
+	
+	//Khai bao
+	double x,s,i,nGT;
+	
+	//Nhap du lieu
+	cout<<"Nhap x = ";
+	cin>>x;
+	
+	//tinh toan
+	s = 0;
+	for (i = 0; i<32000 ; i++) {
+		nGT = 1;
+		for(int j=0; j<=i; j++) {
+			if (j==0) nGT=1;
+			else nGT *= j;
+		}
+		s += pow(x,i)/(nGT);
+		if (fabs(pow(x,i)/(nGT)) < pow(10,-6)) break;
+	}
+	
+	//in ket qua
+	cout<<"Xap xi e^"<<x<<" = "<<s;
+	
+	return 0;
+	
+}
+
+//Chương 2 - bài 10:
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tim cac cap SoSinhDoi < 1000";
+	
+	//Khai bao
+	int i,j,k,kiemTra,soNT[255];
+	
+	//Tim so nguyen to < 1000
+	j=0;
+	k=0;
+	for (i=2; i<1000; i++) {
+		kiemTra = 0;
+		for(j=2 ; j<=sqrt(i) ; j++) {
+			if (i%j == 0) kiemTra++;
+		}
+		if (kiemTra==0) {
+			soNT[k] = i;
+			k++;
+		}
+	}
+	
+	//Kiem tra So Sinh Doi & in ket qua
+	cout<<"\nCac cap So Sinh Doi la:";
+	for (i=0 ; i<k-1 ; i++) {
+		if(soNT[i+1]-soNT[i] == 2){
+			cout<<"\n("<<soNT[i]<<";"<<soNT[i+1]<<")";
+		}
+	}
+		
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 11:
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tinh gan dung sin theo cong thuc xap xi (Khai trien Taylor)\n";
+	
+	//Khai bao
+	double x,s,i,nGT;
+	
+	//Nhap du lieu
+	cout<<"Nhap x = ";
+	cin>>x;
+	
+	//tinh toan
+	s = 0;
+	for (i = 0; i<32000 ; i++) {
+		nGT = 1;
+		for(int j=0; j<=2*i+1; j++) {
+			if (j==0) nGT=1;
+			else nGT *= j;
+		}
+		s += pow(-1,i)*pow(x,2*i+1)/(nGT);
+		if (fabs(pow(x,2*i+1)/(nGT)) < pow(10,-6)) break;
+	}
+	
+	//in ket qua
+	cout<<"Xap xi sin("<<x<<") = "<<s;
+	
+	cout<<endl;
+	return 0;
+	
+}
+
+//Chương 2 - bài 12:
+
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+int main(){
+	
+	//info program
+	cout<<"Tim cac so co dang abcd\nTrong do: (a+b) chan ; (c+d) le\n";
+	
+	//Khai bao
+	int i;
+
+	//Xu li & in KQ
+	cout<<"cac so có 4 chu so phu hop yu cau la:";
+	for (i = 1000; i<10000; i++) {
+		if( (i/1000 + i/100)%2!=0 && (i/10 + i/1)%2==0) cout<<"\n"<<i;
+	}
+
+	cout<<endl;
+	return 0;
+	
+}
