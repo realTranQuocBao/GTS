@@ -1,0 +1,185 @@
+Tên   : Trần Quốc Bảo
+MSSV  : 1951120086
+Lớp NC: CN19B
+Lớp HP: 010112400102_KyThuatLapTrinh
+
+Mục Lục: "//Chương x - bài yy"
+
+//Chương 4 - bài 01:
+/*
+Bài 1. Hãy khai báo bien kí tu ch và con tro kieu kí tu pc tro vào bien ch. Viet ra các cách gán giá tri ‘A’ cho bien ch. 
+*/
+
+#include <iostream>
+using namespace std;
+int main(){
+	
+	char ch; //khai bao bien kitu
+	char *pc; //khai bao con tro ki tu
+	pc = &ch; //tro con tro pc vào bién ch
+	
+	ch = 'A'; //Cách 1
+	*pc='A'; //Cách 2
+	ch = 65; //Cách 3	
+	*pc=65; //Cách 4
+	ch = 1000001; //Cách 5
+	*pc = 1000001; //Cách 6
+	ch = 0x41; //Cách 7
+	*pc = 0x41; //Cách 8
+
+	//còn hê co sô 8 và 10 nua, ma em ko biet ghi :(
+	
+	cout<<ch; //test
+	
+	return 0;
+}
+
+
+//Chương 4 - bài 02:
+/*
+Bài 2. Su dung con tro nhap mot dãy so nguyên gom n phan tu.
+a, Xuat dãy ra màn hình theo chieu nguoc lai
+b, Xác dinh phan tu có giá tri lon nhat và vi trí cua nó
+c, Sap xep dãy tang dan
+d, Sap xep mang nhu sau: bên trái là các phan tu âm giam dan, o giua là so không ( neu có), bên phai là các so duong tang dan
+*/
+
+#include <iostream>
+using namespace std;
+
+void nhapMang(int *p, int n);
+void xuatMang(int *p, int n);
+void xuatNguoc(int *p, int n);
+void viTri(int *p, int n, int k);
+int maxB(int *p, int n);
+void sapXepTang(int *p, int n);
+void sapXep2(int *p, int n);
+
+int main(){
+	
+	int n,*p;
+	cout<<"Nhap so ptu: ";
+	cin>>n;
+	p = new int[n];
+	nhapMang(p,n);
+	
+	cout<<"\ncA. Mang xuat nguoc:\n"; xuatNguoc(p,n);
+	cout<<"\ncB. Gia tri lon nhat la: "<<maxB(p,n)<<"; tai vi tri: "; viTri(p,n,maxB(p,n));
+	cout<<"\ncC. Xuat mang tang:\n"; sapXepTang(p,n);
+	cout<<"\ncC. Xuat mang AmGiam conlaiTang:\n"; sapXep2(p,n);
+	
+	delete[] p;
+	return 0;
+}
+
+void nhapMang(int *p, int n){
+	for(int *i=p; i<p+n; i++ ){
+		cout<<"nhap phan tu "<<i-p+1<<" : ";
+		cin>>*i;
+	}
+}
+void xuatMang(int *p, int n){
+	for(int *i=p; i<p+n; i++ ){
+		cout<<*i<<'\t';
+	}
+}
+void xuatNguoc(int *p, int n){
+	for(int *i=p+n-1; i>=p; i-- ){
+		cout<<*i<<'\t';
+	}
+	cout<<endl;
+}
+void viTri(int *p, int n, int k){
+	for(int *i=p; i<p+n; i++ ){
+		if(*i==k) cout<<i-p+1<<", ";
+	}
+	cout<<endl;
+}
+int maxB(int *p, int n){
+	int max=*p;
+	for(int *i=p; i<p+n; i++ ){
+		if(*i>max) max=*i;
+	}
+	return max;
+}
+void sapXepTang(int *p, int n){
+	int tam;
+	for(int *i=p; i<p+n-1; i++){
+		for(int *j=i+1; j<p+n; j++){
+			if(*i>*j){
+				tam=*i;
+				*i=*j;
+				*j=tam;
+			}
+		}
+	}
+	xuatMang(p,n);
+	cout<<endl;
+}
+void sapXep2(int *p, int n){
+	int vt0=0;
+	sapXepTang(p,n);
+	while(*(p+vt0)<0) vt0++;
+	int tam;
+	for(int *i=p; i<p+vt0-1; i++){
+		for(int *j=i+1; j<p+vt0; j++){
+			if(*i<*j){
+				tam=*i;
+				*i=*j;
+				*j=tam;
+			}
+		}
+	}
+	xuatMang(p,n);
+	cout<<endl;
+}
+
+//Chương 4 - bài 03:
+/*
+Bài 3. Cho xâu kí tu (dung con tro) s. 
+a, Hãy copy tu s sang xâu t mot doan bat dau tai vi trí m voi do dài n.
+b, Ðoi các kí tu (neu là chu cái) dau tiên sau các khoang trang cua t sang chu in hoa.
+*/
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+void copyAtoB(char *s, char *t, int m, int n){
+	int k=0;
+	for(int i=0; i<n; i++){
+		*(t+i)=*(s+m+i-1);
+	}
+	*(t+n)='\0';
+}
+void strH(char *s){
+	int i=0;
+	while(*(s+i)!='\0'){
+		if( (*(s+i)>='a' && *(s+i)<='z') && *(s+i-1)==' '){
+			*(s+i)-=32;
+		}
+		i++;
+	}
+}
+int main(){
+	char S[277];
+	cout<<"Cho xau S: \n";
+	cin.getline(S,276);
+	char *s = S;//"tran 7thao quoc 2giang bao dep trai ll";
+	//cout<<"Cho xau S: "<<s<<endl;
+	
+	//Cau A
+	int m, n;
+	cout<<"\nNhap m, n: ";
+	cin>>m>>n;
+	char *t;
+	t = new char[n];
+	copyAtoB(s,t,m,n);
+	cout<<"cA. Xau t: \n"<<t<<endl;
+	delete[] t;
+	
+	//Cau B
+	strH(s);
+	cout<<"\ncB. Chuoi da Viet Hoa sau Khoang Trang:\n"<<s<<endl;
+	
+	return 0;
+}
