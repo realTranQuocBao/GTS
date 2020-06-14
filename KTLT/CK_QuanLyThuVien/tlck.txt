@@ -1,0 +1,151 @@
+Thư viện cần quản lí 3 loại thông tin gồm độc giả, sách và các phiếu mượn/trả sách.
+
+*Thông tin thẻ độc giả cần quản lí bao gồm: mã độc giả, họ tên, CMND, ngày tháng
+năm sinh, giới tính, email, địa chỉ, ngày lập thẻ và ngày hết hạn của thẻ (48 tháng
+kể từ ngày lập thẻ).
+
+*Thông tin sách cần quản lí bao gồm: ISBN (mã sách), tên sách, tác giả, nhà xuất
+bản, năm xuất bản, thể loại, giá sách, số quyển sách.
+Mỗi phiếu mượn/trả sách chứa thông tin về mã độc giả, ngày mượn, ngày trả dự
+kiến, ngày trả thực tế và danh sách ISBN của các sách được mượn. Mỗi sách được
+mượn tối đa trong 7 ngày, nếu quá hạn sẽ bị phạt tiền 5.000 đồng/ngày. Nếu sách
+bị mất thì độc giả đó sẽ bị phạt số tiền tương ứng 200% giá sách.
+Chương trình có các chức năng sau:
+
+Quản lí độc giả
+a. Xem danh sách độc giả trong thư viện
+b. Thêm độc giả
+c. Chỉnh sửa thông tin một độc giả
+d. Xóa thông tin một độc giả
+e. Tìm kiếm độc giả theo CMND
+f. Tìm kiếm sách theo họ tên
+Quản lí sách
+a. Xem danh sách các sách trong thư viện
+b. Thêm sách
+c. Chỉnh sửa thông tin một quyển sách
+d. Xóa thông tin sách
+e. Tìm kiếm sách theo ISBN
+f. Tìm kiếm sách theo tên sách
+
+ //==============================MENU==============================\\
+||                  CHUONG TRINH QUAN LY THU VIEN                   ||
+||=============================QUAN_LY==============================||
+|| 11  : Them Doc Gia             || 21  : Them Sach                ||
+|| 12  : Sua thong tin Doc Gia    || 22  : Sua thong tin Sach       ||
+|| 13  : Xoa Doc Gia              || 23  : Xoa Sach                 ||
+|| 14x : Xuat DANH SACH Doc Gia   || 24x : Xuat muc luc  Sach       ||
+|| 141 :        theo ma Doc Gia   || 241 :      theo ma  Sach       ||
+|| 142 :       theo ten Doc Gia   || 242 :      theo ten Sach       ||
+||                                || 243 : theo the loai Sach       ||
+|| 15x : Tim kiem  Doc Gia        || 25x : Tim kiem Sach            ||
+|| 151 :  theo Ma  Doc Gia        || 251 :        theo ma Sach      ||
+|| 152 :  theo Ten Doc Gia        || 252 :        theo ma Sach      ||
+||                                || 253 :  theo the loai Sach      ||
+|| 16  : Gia han the              ||                                ||
+||===========================MUON_TRA_SACH==========================||
+|| 31  : Muon Sach                || 32  : Tra Sach                 ||
+||=============================THONG_KE=============================||
+|| 41  : Doc Gia dang muon Sach   || 51 : 10 Sach muon nhieu nhat   ||
+|| 42  : Doc gia dang tre han tra || 52 : Cac Sach dang duoc muon   ||
+||==================================================================||
+|| 0   : THOAT                    || 1  : Xem Thong Tin             ||
+ \\=================================================================//
+T tìm được 1 cái đề như thế này, mọi người bổ sung vào vài ý đi
+
+Tui đề nghị thêm vào phần thống kê và 1 số chức năng:
+a. top sách được mượn nhiều /=
+b. top bạn đọc mượn nhiều  /x
+c. những bạn đang trả sách trễ /=
+d. danh sách các sách hiện đang bị mượn /=
+e. danh sách các bạn đọc đang mượn sách /=
+f. danh sách bạn đọc hết hạn thẻ /x
+g. Chức năng gia hạn thẻ. /=
+h. chức năng xuất phiếu mượn trả sách /x
+//Data lưu vào tệp binary
+
+1kb=?1Mb 1 000 000b
+1000 
+
+
+Thư viện cần quản lí 3 loại thông tin gồm độc giả, sách và các phiếu mượn/trả sách.
+
+*Thông tin thẻ độc giả cần quản lí bao gồm:
+- mã độc giả,
+- họ tên,
+- CMND,
+- ngày tháng năm sinh,
+- giới tính,
+- email,
+- địa chỉ,
+- ngày lập thẻ và ngày hết hạn của thẻ (48 tháng kể từ ngày lập thẻ).
+
+*Thông tin sách cần quản lí bao gồm:
+- ISBN (mã sách) tên sách,
+- tác giả,
+- nhà xuất bản,
+- năm xuất bản,
+- thể loại,
+- giá bìa sách,
+- số quyển sách.
+
+*Mỗi phiếu mượn/trả sách chứa thông tin về:
+- mã độc giả,
+- ngày mượn,
+- ngày trả dự kiến,
+- ngày trả thực tế
+- danh sách ISBN của các sách được mượn.
+- Mỗi sách được mượn tối đa trong 14 ngày,
+nếu quá hạn sẽ bị phạt tiền 5.000 đồng/ngày.
+Nếu sách bị mất thì độc giả đó sẽ bị phạt số tiền tương ứng 200% giá sách.
+
+Chương trình có các chức năng sau:
+
+Quản lí độc giả
+a. Xem danh sách độc giả trong thư viện
+b. Thêm độc giả
+c. Chỉnh sửa thông tin một độc giả
+d. Xóa thông tin một độc giả
+e. Tìm kiếm độc giả theo CMND / Mã độc giả
+
+Quản lí sách
+a. Xem danh sách các sách trong thư viện
+b. Thêm sách
+c. Chỉnh sửa thông tin một quyển sách
+d. Xóa thông tin sách
+e. Tìm kiếm sách theo ISBN
+f. Tìm kiếm sách theo tựa sách
+
+Thống kê:
+- Top Tựa sách được mượn nhiều
+- Top độc giả mượn nhiều tựa sách.
+- Danh sách độc giả đang trễ hạn trả sách.
+- Danh sách các sách đang được mượn.
+- Danh sách các độc giả đang mượn sách.
+- Danh sách độc giả còn hạn thẻ / hết hạn thẻ.
+- Gia hạn thẻ.
+
+
+5. Thư Viên: Ta tổ chức các danh sách sau:
+- Đầu sách : danh sách tuyến tính là 1 mảng con trỏ (ISBN , Tên sách, Số trang, Tác giả, thể loại, con trỏ):
+con trỏ sẽ trỏ đến các sách thuộc đầu sách tương ứng
+- Danh Mục Sách : Danh sách  liên kết đơn( Mã sách, trangj thái, vị trí ). Mỗi cuốn sách 
+chỉ có 1 mã duy nhất; trạng thái của sách bao gồm: 0: cho mươn được, 1: đã có độc giả mượn, 2: sách đã thanh lý
+- Danh Sách độc giả: cây nhị phân tìm kiếm (MADG (soá nguyeân ngẫu nhiên tự động),
+Ho, Ten, Phai, trạng thái thẻ, con trỏ): con trỏ sẽ trỏ đến danh sách các cuốn sách đã và đang mượn
+Chương trình có các chức năng sau: 
+a. Nhập độc giả: thêm / xóa / hiệu chỉnh thông tin độc giả. Mã độc giả được chương trình tự
+động lấy ngẫu nhiên và không trùng với các mã độc giả cũ; Phái chỉ nhận ‘Nam’ hoặc ‘Nữ’;
+trạng thái thẻ = 0 khi thẻ bị khóa, trạng thái thẻ = 1 khi thẻ đang hoạt động (được quyền
+mượn sách).
+b. In danh sách độc giả : in ra màn hình theo thứ tự tên+họ tăng dần hoặc theo thứ tự mã độc
+giả tăng dần theo yêu của thủ thư.
+c. Nhập đầu sách và đánh mã sách tự động
+d. In danh sách các đầu sách trong thư viện theo thứ tự tên sách tăng dần.
+e. Tìm thông tin sách dựa vào tên sách : in ra các thông tin mã ISBN, tên sách, tác giả, năm
+xuất bản, thể loại, các mã sách còn có trong thư viện.
+f. Mượn sách : nhập vào mã độc giả, chương trình sẽ liệt kê các sách mà độc giả đang mượn.
+Mỗi độc giả chỉ được mượn tối đa 3 cuốn, không cho mượn khi giữ 1 sách quá hạn (15 ngày)
+g. Trả sách
+h. Liệt kê danh sách các sách mà 1 độc giả đang mượn
+i. In danh sách độc giả mượn sách quá hạn theo thứ tự thời gian quá hạn giảm dần
+j. In 10 sách có số lượt mượn nhiều nhất.
