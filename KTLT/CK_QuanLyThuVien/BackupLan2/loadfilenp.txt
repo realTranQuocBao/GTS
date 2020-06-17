@@ -1,0 +1,45 @@
+void appfile(char filename[], PTR First )
+{
+	PTR p;
+	ofstream fout(filename,ios::binary);
+	for (p=First;p!=NULL;p=p->next)
+	{
+		fout.write(reinterpret_cast<char*>(&(p->sv.mssv)),sizeof(p->sv.mssv));
+		fout.write((p->sv.ho),sizeof(p->sv.ho));
+		fout.write((p->sv.ten),sizeof(p->sv.ten));
+	}
+	fout.close();
+	Error("Ghi vao file thanh cong");
+}
+typedef struct sinhvien
+{
+	int mssv;
+	char ho[40];
+	char ten[10];
+} sinhvien;
+
+typedef struct nodeSV
+{
+	sinhvien sv;
+	struct nodeSV *next;
+} *PTR;
+void readfile(char filename[],PTR &First)
+{
+	PTR p,q;
+	ifstream fin(filename,ios::binary);
+	
+	fin.seekg(0,ios::end);
+	int size=(int) fin.tellg();
+	fin.seekg(0,ios::beg);
+	First=NULL;
+	while(fin.tellg() < size)
+	{
+		p=new nodeSV;
+		fin.read (reinterpret_cast<char*>(&(p->sv.mssv)),sizeof(p->sv.mssv));
+		fin.read((p->sv.ho),sizeof(p->sv.ho));
+		fin.read((p->sv.ten),sizeof(p->sv.ten));
+		Insert_Last(First,p->sv.mssv,p->sv.ho,p->sv.ten);
+	}
+	fin.close();
+	Error("Nap vao danh sach thanh cong");
+}
