@@ -1,24 +1,32 @@
-</br>**Bài cuối kỳ môn Kỹ Thuật Lập Trình**
-
-</br># Thông Tin Môn Học:
-</br>**Học Phần :** Kỹ thuật lập trình
-</br>**Mã HP    :**     0101124001
-</br>**Nhóm HP  :**         02
-</br>**GV       :**   Nguyen Van Huy
-
-# Thông Tin Nhóm Thực Hiện
-* [Trần Quốc Bảo](https://fb.com/100005461099003)     - 1951120086 - CN19B
-* [Phan Thi Ngọc Anh](https://fb.com/100028613112511) - 1951120082 - CN19B
-* [Nguyễn Thị Trà My](https://fb.com/100012510330168) - 1951120111 - CN19B
-
-# Thông Tin Chương Trình:
-</br>**CHƯƠNG TRÌNH HỖ TRỢ QUẢN LÝ THƯ VIỆN TRUYỀN THỐNG**
-</br>**Ngôn ngữ  :** C++
-</br>**Phiên bản :** C++98
-</br>**Một số chức năng:**
-```
-+ Quản lý Độc Giả : (thêm, sửa, xóa, tìm kiếm, gia hạn thẻ ĐG...)
-+ Quản lý Sách    : (thêm, sửa, xóa, tìm kiếm, báo mất sách,...)
-+ Mượn - Trả Sách : (Mượn, trả, tìm kiếm phiếu,...)
-+ Thống kê        : (các ĐG đang mượn sách, các ĐG trễ hạn trả sách,...)
-```
+# GTS
+Backup Bai Tap
+# GTS
+</br> **Họ tên:** Trần Quốc Bảo
+</br> **MSSV  :** 195 112 0086
+</br> **Lớp NC:** CN19B
+</br> **Email :** 1951120086@sv.ut.edu.vn
+</br> **MySite:** http://QuocBaoIT.com
+# Hướng dẫn commit code.
+</br> **$ git clone {link}**
+</br> lấy source code trên git về ngồi code
+</br> **$ git init**
+</br> tạo 1 repo trên local
+</br> **$ git status**
+</br> để xem có thằng nào mới trên máy hông
+</br> **$ git pull**
+</br> đồng bộ code trên github về máy tính
+</br> **$ git add {file}**
+</br> tên file (nếu file ở thư mục gốc)
+</br> F1/F2/f.file (nếu file ở thư mục con)
+</br> **$ git rm --cached {file}**
+</br> để hủy bỏ việc add file
+</br> **$ git add .**
+</br> add hết cmn lun, dấu . hay * đều được
+</br> **$ git commit -m "thêm message ở đây"**
+</br> lệnh commit file và thêm ghi chú
+</br> **$ git remote add origin https://github.com/realTranQuocBao/GTS.git**
+</br> cái này cũng hổng biết để chi nữa :v
+</br> **$ git push origin master**
+</br> **$ git push -u origin master**
+</br> **$ git push -f origin master**
+</br> lần lượt chọn 3 thằng trên. cho đến khi thấy ok.
