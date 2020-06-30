@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # GTS...
+=======
+# GTS
+>>>>>>> c5d4a5d32e83ff5630e27a1cee71501b38fa5d83
 Backup Bai Tap
 # GTS
 </br> **Họ tên:** Trần Quốc Bảo
@@ -29,4 +33,8 @@ Backup Bai Tap
 </br> **$ git push origin master**
 </br> **$ git push -u origin master**
 </br> **$ git push -f origin master**
+<<<<<<< HEAD
 </br> lần lượt chọn 3 thằng trên. cho đến khi thấy ok.
+=======
+</br> lần lượt chọn 3 thằng trên. cho đến khi thấy ok.
+>>>>>>> c5d4a5d32e83ff5630e27a1cee71501b38fa5d83
