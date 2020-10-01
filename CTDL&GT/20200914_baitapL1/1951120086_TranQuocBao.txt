@@ -1,0 +1,384 @@
+Bài 1: Nhập vào tâm và bán kính của một đường tròn. Sau đó nhập vào một điểm A(x, y) bất kì và kiểm tra xem nó có thuộc đường tròn hay không?
+Bài 2: Tính X^y ( Với x, y là số thực). 
+Bài 3: Tìm tất cả các chữ số có ba chữ số  abc  sao cho tổng các lập phương của các chữ
+số thì bằng chính số đó (  abc  = a^3 + b^3 + c^3). 
+Bài 4: Nhập 3 loại tiền và số tiền cần đổi. Hãy tìm tất cả các tổ hợp có được của 3 loại tiền trên cho số tiền vừa nhập.
+Bài 5: Tính tam giác: Nhập vào ba số a,b,c bất kì. Kiểm tra xem nó có thể  là độ dài ba cạnh hay không, nếu  không  thì in  ra màn  hình  ' Khong la ba  canh cua mot tam  giac'. Ngược lại, thì in diện tích, chu vi của tam giác ra màn hình.
+Bài 6: Viết chương trình tìm số đảo của một số nguyên dương. 
+Bài 7: Nhập 1 sô tự nhiên, đếm sô tự nhiên có bao nhiêu chữ sô.
+Bài 8: Tính tổ hợp chập k của n phần tử.
+Bài 9: Viết chương trình tìm số đảo của một số nguyên dương. 
+Bài 10: Cho vector AB vector CD, tính tích vô hướng của 2 vector
+
+bai01:
+
+
+// Bài 1: Nh?p vào tâm và bán kính c?a m?t du?ng tròn.
+//Sau dó nh?p vào m?t di?m A(x, y) b?t kì và ki?m tra xem nó có thu?c du?ng tròn hay không?
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct TOA_DO{
+	int x,y;
+};
+TOA_DO nhapToaDo(){
+	TOA_DO M;
+	cout<<"\nNhap x: ";
+	cin>>M.x;
+	cout<<"Nhap y: ";
+	cin>>M.y;
+	return M;
+}
+float khoangCach(TOA_DO I, TOA_DO M){
+	return sqrt(pow((M.x-I.x),2)+pow((M.y-I.y),2));
+}
+int main(){
+	int R;
+	TOA_DO I;
+	//
+	cout<<"Nhap toa do tam I:";
+	I = nhapToaDo();
+	cout<<"Nhap ban kinh R: ";
+	cin>>R;
+	//
+	cout<<"Nhap toa do Diem muon kiem tra:";
+	TOA_DO M = nhapToaDo();
+	//
+	((khoangCach(I,M)-R)==0)?cout<<"Diem M THUOC Duong Tron":cout<<"Diem M KHONG THUOC Duong Tron";
+	return 0;
+}
+
+bai02:
+
+
+//Tính X^y ( V?i x, y là s? th?c). 
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main(){
+	
+	double X,Y;
+	cout<<"Nhap X = ";
+	cin>>X;
+	cout<<"Nhap Y = ";
+	cin>>Y;
+	
+	cout<<"X^Y = "<<pow(X,Y);
+	
+	return 0;
+}
+
+bai03:
+
+
+//Tìm t?t c? các ch? s? có ba ch? s?  abc
+//sao cho t?ng các l?p phuong c?a các ch?
+//s? thì b?ng chính s? dó (  abc  = a^3 + b^3 + c^3). 
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int check(int N){
+	int a,b,c;
+	a = N/100;
+	b = (N-a*100)/10;
+	c = N%10;
+	if( (pow(a,3)+pow(b,3)+pow(c,3))==N ) return 1;
+	return 0;
+}
+
+int main(){
+	for(int i=100; i<1000; i++){
+		if( check(i) ) cout<<i<<endl;
+	}
+	return 0;
+}
+
+bai04:
+
+
+//Nh?p 3 lo?i ti?n và s? ti?n c?n d?i.
+//Hãy tìm t?t c? các t? h?p có du?c c?a 3 lo?i ti?n trên cho s? ti?n v?a nh?p.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void nhapMenhGia(int tienVN[], int &soTien){
+	cout<<"Don vi: 000VND\n";
+	for(int i=0; i<3; i++){
+		cout<<"Nhap menh gia "<<i+1<<" : ";
+		cin>>tienVN[i];
+	}
+	cout<<"Nhap so tien: ";
+	cin>>soTien;
+}
+void xepTien(int tienVN[]){
+	for(int i=0; i<3-1; i++){
+		for(int j=i+1; j<3; j++){
+			if(tienVN[i]<tienVN[j]){
+				int temp = tienVN[i];
+				tienVN[i] = tienVN[j];
+				tienVN[j] = temp;
+			}
+		}
+	}
+}
+void find(int tienVN[], int soTien){
+	int a = (soTien/tienVN[0]);
+	int b = (soTien/tienVN[1]);
+	int c = (soTien/tienVN[2]);
+	for(int i=0; i<= a; i++){
+		for(int j=0; j<= b; j++){
+			for(int k=0; k<= c; k++){
+				if( (tienVN[0]*i+tienVN[1]*j+tienVN[2]*k)==soTien ){
+					cout<<setw(5)<<i<<setw(5)<<j<<setw(5)<<k<<" (to).\n";
+				}
+			}
+		}
+	}
+}
+int main(){
+	int tienVN[3], soTien;
+	nhapMenhGia(tienVN, soTien);
+	xepTien(tienVN);
+	cout<<"\nCac to hop co the xay ra la:\n";
+	cout<<setw(5)<<tienVN[0]<<setw(5)<<tienVN[1]<<setw(5)<<tienVN[2]<<" (menh gia).\n";
+	find(tienVN, soTien);
+	return 0;
+}
+
+bai05:
+
+
+//Bài 5: Tính tam giác: Nh?p vào ba s? a,b,c b?t kì.
+//Ki?m tra xem nó có th?  là d? dài ba c?nh hay không,
+//n?u  không  thì in  ra màn  hình  ' Khong la ba  canh cua mot tam  giac'. 
+//Ngu?c l?i, thì in di?n tích, chu vi c?a tam giác ra màn hình.
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+int checkTG(int a, int b, int c){
+	if( (a+b)!=c && (c+b)!=a && (a+c)!=b ) return 1;
+	return 0;
+}
+float dtTG(int a, int b, int c){
+	float s=(a+b+c)/2;
+	return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+int main(){
+	int a,b,c;
+	cout<<"Nhap do dai 3 canh: ";
+	cin>>a>>b>>c;
+	if(checkTG(a,b,c)){
+		cout<<"Chu vi = "<<a+b+c<<"\nDien tich = "<<dtTG(a,b,c);
+	} else{
+		cout<<"Khong la ba  canh cua mot tam  giac";
+	}
+	return 0;
+}
+
+bai06:
+
+
+//Vi?t chuong trình tìm s? d?o c?a m?t s? nguyên duong. 
+
+#include <iostream>
+using namespace std;
+
+long long int daoNguoc(long long int a){
+	long long int KQ=0;
+	while(a>0){
+		int temp = a%10;
+		KQ = KQ*10 + temp;
+		a/=10;
+	}
+	return KQ;
+}
+
+int main(){
+	long long int a;
+	cout<<"Nhap so nguyen duong: ";
+	cin>>a;
+	cout<<daoNguoc(a);
+	return 0;
+}
+
+bai07:
+
+
+//Nh?p 1 sô t? nhiên, d?m sô t? nhiên có bao nhiêu ch? sô.
+
+#include <iostream>
+using namespace std;
+int demChuSo(long long int n){
+	int dem=0;
+	while(n>0){
+		n/=10;
+		dem++;
+	}
+	return dem;
+}
+int main(){
+	long long int N;
+	cout<<"Nhap so tu nhien: ";
+	cin>>N;
+	cout<<"So vua nhap co "<<demChuSo(N)<<" chu so.";
+	return 0;
+}
+
+bai08:
+
+
+//Tính t? h?p ch?p k c?a n ph?n t?.
+
+#include <iostream>
+using namespace std;
+long long gt(int n) {
+    long long s = 1;
+    for (int i = 1; i <= n; i++)
+        s *= i;
+    return s;
+}
+long long C(int k, int n) {
+    return  gt(n) / (gt(k)*gt(n - k));
+}
+int main(){
+    int n, k;
+    cout << "Nhap k: ";
+    cin >> k;
+    cout << "Nhap n: ";
+    cin >> n;
+    cout << "To hop chap "<<k<<" cua "<<n<<" phan tu bang: " << C(k, n);
+    return 0;
+}
+ 
+bai09:
+
+
+//Vi?t chuong trình tìm s? d?o c?a m?t s? nguyên duong. 
+
+#include <iostream>
+using namespace std;
+
+long long int daoNguoc(long long int a){
+	long long int KQ=0;
+	while(a>0){
+		int temp = a%10;
+		KQ = KQ*10 + temp;
+		a/=10;
+	}
+	return KQ;
+}
+
+int main(){
+	long long int a;
+	cout<<"Nhap so nguyen duong: ";
+	cin>>a;
+	cout<<daoNguoc(a);
+	return 0;
+}
+
+bai10:
+
+
+//Cho vector AB vector CD, tính tích vô hu?ng c?a 2 vector
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct VECTOR{
+	int x,y;
+};
+VECTOR nhapVector(){
+	VECTOR BG;
+	cout<<"\nNhap x: "; cin>>BG.x;
+	cout<<"Nhap y: "; cin>>BG.y;
+	return BG;
+}
+float tichVH(VECTOR AB, VECTOR CD){
+	return sqrt(pow(AB.x,2)+pow(AB.y,2))*sqrt(pow(CD.x,2)+pow(CD.y,2))*(AB.x*CD.x+AB.y*CD.y)/(sqrt(pow(AB.x,2)+pow(AB.y,2))*sqrt(pow(CD.x,2)+pow(CD.y,2)));
+}
+int main(){
+	VECTOR AB,CD;
+	cout<<"Nhap vecto AB: ";
+	AB = nhapVector();
+	cout<<"Nhap vecto CD: ";
+	CD = nhapVector();
+	cout<<"Tich vo huong cua 2 vector AB va CD la "<<tichVH(AB,CD);
+	return 0;
+}
+
+bai11:
+
+
+//s? d?ng struct, cài d?t s? ph?c.
+//Vi?t hàm th?c hi?n các phép toán trên s? ph?c(C?ng, tr?, nhân..)
+
+#include <iostream>
+using namespace std;
+struct SOPHUC{
+	int a,b;
+};
+void inSP(SOPHUC i){
+	cout<<i.a<<"i+"<<i.b;
+}
+SOPHUC nhapSP(){
+	SOPHUC i;
+	cout<<"\nPhan thuc = "; cin>>i.a;
+	cout<<"Phan  ao  = "; cin>>i.b;
+	return i;
+}
+SOPHUC tongz(SOPHUC z1, SOPHUC z2){
+	SOPHUC kq;
+	kq.a=z1.a+z2.a;
+	kq.b=z1.b+z2.b;
+	return kq;
+}
+SOPHUC hieuz(SOPHUC z1, SOPHUC z2){
+	SOPHUC kq;
+	kq.a=z1.a-z2.a;
+	kq.b=z1.b-z2.b;
+	return kq;
+}
+SOPHUC tichz(SOPHUC z1, SOPHUC z2){
+	SOPHUC kq;
+	kq.a=z1.a*z2.a-z1.b*z2.b;
+	kq.b=z1.a*z2.a+z1.b*z2.b;
+	return kq;
+}
+SOPHUC thuongz(SOPHUC z1, SOPHUC z2){
+	SOPHUC kq;
+	z2.b*=-1;
+	kq=tichz(z1,z2);
+	kq.a/=(z2.a*z2.a+z2.b*z2.b);
+	kq.b/=(z2.a*z2.a+z2.b*z2.b);
+	return kq;
+}
+int main(){
+	SOPHUC z1,z2,tong,hieu,tich,thuong;
+	
+	cout<<"Nhap so phuc z1:";
+	z1=nhapSP();
+	cout<<"Nhap so phuc z2:";
+	z2=nhapSP();
+	
+	cout<<"\nSo phuc z1 = "; inSP(z1);
+	cout<<"\nSo phuc z2 = "; inSP(z2);
+	
+	tong = tongz(z1,z2);
+	hieu = hieuz(z1,z2);
+	tich = tichz(z1,z2);
+	thuong = thuongz(z1,z2);
+	
+	cout<<"\nz1+z2 = "; inSP(tong);
+	cout<<"\nz1-z2 = "; inSP(hieu);
+	cout<<"\nz1*z2 = "; inSP(tich);
+	cout<<"\nz1/z2 = "; inSP(thuong);
+	
+	return 0;
+}
