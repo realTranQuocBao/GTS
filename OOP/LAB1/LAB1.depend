@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1601635839 source:c:\users\micae\desktop\lab\lab1\recttest.cpp
+	<iostream>
+	<cstdlib>
+	"rect.h"
+
+1601635279 c:\users\micae\desktop\lab\lab1\rect.h
+
+1601636146 source:c:\users\micae\desktop\lab\lab1\rect.cpp
+	<iostream>
+	<math.h>
+	"rect.h"
+
