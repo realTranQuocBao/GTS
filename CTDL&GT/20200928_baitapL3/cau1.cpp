@@ -97,7 +97,7 @@ void giaiPhong(LIST &l){
 	while (l.pHead != NULL){
 		p = l.pHead;
 		l.pHead = l.pHead->pNext;
-		delete p;
+		if(p != NULL) delete p;
 	}
 }
 

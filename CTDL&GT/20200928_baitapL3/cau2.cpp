@@ -93,7 +93,7 @@ void giaiPhong(LIST &l){
 	while (l.pHead != NULL){
 		p = l.pHead;
 		l.pHead = l.pHead->pNext;
-		delete p;
+		if(p != NULL) delete p;
 	}
 }
 
@@ -119,14 +119,14 @@ int main(){
 	init(lA); //DS chan
 	init(lB); //DS le
 	dividesCintoAchanBle(lC, lA, lB);
-//	giaiPhong(lC);
+	giaiPhong(lC);
 	//Xuat danh sach
 	cout<<"===Danh sach Data A gom cac So CHAN Nguyen Duong===\n";
 	outputList(lA);
 	cout<<"===Danh sach Data B gom cac So  LE  Nguyen Duong===\n";
 	outputList(lB);
 	
-//	giaiPhong(lA);
-//	giaiPhong(lB);
+	giaiPhong(lA);
+	giaiPhong(lB);
 	return 0;
 }
