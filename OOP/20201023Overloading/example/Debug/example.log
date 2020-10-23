@@ -1,0 +1,28 @@
+﻿  Employee.cpp
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.h(20,1): error C2011: 'Employee': 'class' type redefinition
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.h(5): message : see declaration of 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(4,11): error C2027: use of undefined type 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.h(5): message : see declaration of 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(4,85): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(5,2): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(6,2): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(7,2): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(8,2): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(9,1): warning C4508: '{ctor}': function should return a value; 'void' return type assumed
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(10,16): error C2027: use of undefined type 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.h(5): message : see declaration of 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(11,30): error C2065: 'lastname': undeclared identifier
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(12,31): error C2065: 'firstname': undeclared identifier
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(13,28): error C2065: 'birthday': undeclared identifier
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(14,28): error C2065: 'hiredate': undeclared identifier
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(16,12): error C2027: use of undefined type 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.h(5): message : see declaration of 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(16,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.cpp(18,1): warning C4508: '{dtor}': function should return a value; 'void' return type assumed
+  test.cpp
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.h(20,1): error C2011: 'Employee': 'class' type redefinition
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\Employee.h(5): message : see declaration of 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\test.cpp(11,11): error C2079: 'manager' uses undefined class 'Employee'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\test.cpp(11,46): error C2440: 'initializing': cannot convert from 'initializer list' to 'int'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example\test.cpp(11,18): message : The initializer contains too many elements
+  Generating Code...

@@ -1,0 +1,3 @@
+﻿  Date.cpp
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\example_overator_overloading\Debug\example_overator_overloading.exe : fatal error LNK1120: 1 unresolved externals

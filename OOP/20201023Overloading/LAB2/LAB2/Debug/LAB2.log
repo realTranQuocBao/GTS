@@ -1,0 +1,29 @@
+﻿  Date.cpp
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C2143: syntax error: missing ';' before '&'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C2433: 'ostream': 'friend' not permitted on data declarations
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,57): error C2238: unexpected token(s) preceding ';'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C2143: syntax error: missing ';' before '&'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C2433: 'istream': 'friend' not permitted on data declarations
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,56): error C2238: unexpected token(s) preceding ';'
+  Employee.cpp
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C2143: syntax error: missing ';' before '&'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C2433: 'ostream': 'friend' not permitted on data declarations
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,57): error C2238: unexpected token(s) preceding ';'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C2143: syntax error: missing ';' before '&'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C2433: 'istream': 'friend' not permitted on data declarations
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,56): error C2238: unexpected token(s) preceding ';'
+  employeeTest.cpp
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C2143: syntax error: missing ';' before '&'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C2433: 'ostream': 'friend' not permitted on data declarations
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(23,57): error C2238: unexpected token(s) preceding ';'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C2143: syntax error: missing ';' before '&'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C2433: 'istream': 'friend' not permitted on data declarations
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\Date.h(24,56): error C2238: unexpected token(s) preceding ';'
+D:\OldData\20190820GTSnam1\2020_HK1\010112200302_LapTrinhHuongDoiTuong\20201023Overloading\LAB2\LAB2\employeeTest.cpp(24,6): error C2676: binary '++': 'Date' does not define this operator or a conversion to a type acceptable to the predefined operator
+  Generating Code...
